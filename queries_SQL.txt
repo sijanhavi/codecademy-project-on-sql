@@ -1,0 +1,43 @@
+select city,learn_cpp,learn_sql,learn_html,learn_javascript,learn_java
+from users join progress
+on users.user_id=progress.user_id
+where city='Chicago';
+
+select city,learn_cpp,learn_sql,learn_html,learn_javascript,learn_java
+from users join progress
+on users.user_id=progress.user_id
+where city='New York';
+
+select email_domain,learn_cpp,learn_sql,learn_html,learn_javascript,learn_java
+from users join progress
+on users.user_id=progress.user_id;
+
+select strftime('%H',sign_up_at),count(strftime('%H',sign_up_at))
+from users
+group by 1;
+
+select sign_up_at,
+   strftime('%S', sign_up_at)
+from users
+group by 1
+limit 20;
+
+select count(mobile_app),mobile_app
+from users
+group by  mobile_app
+having mobile_app='mobile-user';
+
+select count(email_domain),city
+from users
+where email_domain like '%.edu'and city='New York';
+
+select email_domain
+from users
+where email_domain like '%.edu'
+limit 25;
+
+select *
+from users;
+
+select *
+from progress;
